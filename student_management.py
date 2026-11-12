@@ -28,7 +28,12 @@ def add_student():
 
     student_name = input("Enter Student Name:")    
     while True :
-        marks = int(input("Enter Student Marks:"))
+        marks = input("Enter Student Marks:")
+
+        if not marks.isdigit():
+            print("Invalid input. Please enter numbers only.")
+            continue
+        marks=int(marks)
 
         if  0 <= marks <= 100 :
             break
@@ -74,7 +79,13 @@ def update_marks():
         if (update_id == student["id"]):
 
             while True :
-                new_marks =int(input("Enter New Marks:"))
+                new_marks =input("Enter New Marks:")
+                
+                if not new_marks.isdigit():
+                    print("Invalid input. Please enter numbers only.")
+                    continue
+                new_marks=int(new_marks)
+                
                 if  0 <= new_marks <= 100 :
                     student["marks"]= new_marks
                     print("Marks Updated Successfully")
@@ -139,8 +150,13 @@ while True:
 
     display_menu()
 
-    choice = int(input("Enter your choice: "))
+    choice = input("Enter your choice: ")
 
+    if not choice.isdigit():
+        print("Invalid input. Please enter a number.")
+        continue
+
+    choice = int(choice)
 
     if choice == 1:
         add_student()
